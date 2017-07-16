@@ -16,18 +16,20 @@ namespace MyWebsite.Controllers
     {
         //TODO: update createdAt properties
 
-        public readonly IBlogPostService _service;
+        public readonly IBlogPostService _postService;
+        public readonly ICommentService _commentService;
 
-        public BlogController() : this(new DefaultBlogPostService()) { }
+        public BlogController() : this(new DefaultBlogPostService(), new DefaultCommentService()) { }
 
-        public BlogController(IBlogPostService service) {
-            _service = service;
+        public BlogController(IBlogPostService postService, ICommentService commentService) {
+            _postService = postService;
+            _commentService = commentService;
         }
 
         // GET: Blog
         public async Task<ActionResult> Index(CancellationToken ct)
         {
-            var posts = await _service.GetPostsAsync(ct);
+            var posts = await _postService.GetPostsAsync(ct);
             return View(posts);
         }
 
@@ -36,13 +38,21 @@ namespace MyWebsite.Controllers
         public async Task<ActionResult> Details(Guid id,CancellationToken ct)
         {
             //TODO: create helper method to display Image inside the Model
-            var post = await _service.GetPostByIdAsync(id, ct);
+            var post = await _postService.GetPostByIdAsync(id, ct);
 
             if (post == null) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
             
             return View(post);
         }
+
+        /*[Authorize]
+        [HttpPost]
+        [ActionName("Details")]
+        public async Task<ActionResult> Details(Comment comment, CancellationToken ct) {
+            await _commentService.CreateCommentAsync(comment, ct);
+            return Redirect(Request.UrlReferrer.ToString());
+        }*/
 
         // GET: Blog/Create
         [Authorize]
@@ -63,7 +73,7 @@ namespace MyWebsite.Controllers
                      postEntity.Id = Guid.NewGuid();
                      postEntity.ApplicationUserId = User.Identity.GetUserId();
 
-                     var createdPost = await _service.CreatePostAsync(postEntity, ct);
+                     var createdPost = await _postService.CreatePostAsync(postEntity, ct);
 
                      return RedirectToAction("Details", new { id = createdPost.Id });
                 }
@@ -80,7 +90,7 @@ namespace MyWebsite.Controllers
         public ActionResult Edit(Guid id)
         {
             //TODO: use Automapper to clean up the code
-            var post = _service.GetPostById(id);
+            var post = _postService.GetPostById(id);
             
             return View(post);
         }
@@ -92,7 +102,7 @@ namespace MyWebsite.Controllers
         {
             try
             {
-                var updatedPost =await _service.UpdatePostAsync(id,post, ct);
+                var updatedPost =await _postService.UpdatePostAsync(id,post, ct);
 
                 return View("Details", updatedPost);
             }
@@ -107,7 +117,7 @@ namespace MyWebsite.Controllers
         [Authorize]
         public ActionResult Delete(Guid id)
         {
-            var post = _service.GetPostById(id);
+            var post = _postService.GetPostById(id);
 
             return View(post);
         }
@@ -119,7 +129,7 @@ namespace MyWebsite.Controllers
         {
             try
             {
-                await _service.RemovePostAsync(id,ct);
+                await _postService.RemovePostAsync(id,ct);
                 
                 return RedirectToAction("Index");
             }

@@ -14,6 +14,11 @@ namespace MyWebsite.Models
         [StringLength(300)]
         public string Content { get; set; }
 
+
+        public DateTimeOffset CreatedAt { get; set; }
+
+        public DateTimeOffset ModifedAt { get; set; }
+
         [Required]
         public string ApplicationUserId { get; set; }
         public virtual ApplicationUser User { get; set; }

@@ -9,6 +9,10 @@ namespace MyWebsite.Models
     {
         public string Content { get; set; }
 
+        public DateTimeOffset CreatedAt { get; set; }
+
+        public DateTimeOffset ModifedAt { get; set; }
+
         public ApplicationUser Author { get; set; }
     }
 }
