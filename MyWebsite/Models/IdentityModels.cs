@@ -46,6 +46,13 @@ namespace MyWebsite.Models
         {
             return new ApplicationDbContext();
         }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<CommentEntity>().HasOptional(e => e.BlogPostEntity).WithMany();
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
 
         public DbSet<BlogPostEntity> BlogPosts { get; set; }
 

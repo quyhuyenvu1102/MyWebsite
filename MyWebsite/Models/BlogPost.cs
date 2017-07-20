@@ -13,14 +13,13 @@ namespace MyWebsite.Models
 
         public string Content { get; set; }
 
+        public DateTimeOffset CreatedDate { get; set; }
 
-        //public DateTimeOffset CreatedDate { get; set; }
-
-        //public DateTimeOffset ModifiedDate { get; set; }
+        public DateTimeOffset ModifiedDate { get; set; }
 
         public ApplicationUser Author { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; }
 
     }
 }

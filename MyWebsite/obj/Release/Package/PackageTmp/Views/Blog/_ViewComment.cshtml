@@ -1,0 +1,36 @@
+﻿@model MyWebsite.Models.CommentsViewModel
+
+<div>
+    <h4>Comments</h4>
+    <hr />
+    @if (Model != null&&Model.Comments!=null)
+    {
+    <dl class="dl-horizontal">
+        @{ 
+            foreach (var item in Model.Comments) {
+                <dd>
+                    <div class="comment-block">
+                        <div class="comment-header">
+                            @using (Html.BeginForm("Delete", "Comment", new { commentId = item.Id }))
+                            { 
+                            <span class="glyphicon glyphicon-remove pull-right" aria-hidden="true">
+                               <input type="submit" />
+                            </span>
+                            }
+                            
+                            <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                            <p><strong>@item.Author.Name</strong></p> 
+                            <p class="pull-right">@item.CreatedAt.DateTime</p>
+
+                        </div>
+                        <div>
+                            <p class="comment-content">@item.Content</p>
+                        </div>
+                        
+                    </div>
+                </dd>
+                            }
+        }
+    </dl>
+            }
+</div>

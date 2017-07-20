@@ -18,7 +18,7 @@ namespace MyWebsite.Controllers
 
         public readonly IBlogPostService _postService;
         public readonly ICommentService _commentService;
-
+        
         public BlogController() : this(new DefaultBlogPostService(), new DefaultCommentService()) { }
 
         public BlogController(IBlogPostService postService, ICommentService commentService) {
@@ -32,11 +32,11 @@ namespace MyWebsite.Controllers
             var posts = await _postService.GetPostsAsync(ct);
             return View(posts);
         }
-
-
+        
         // GET: Blog/Details/5
         public async Task<ActionResult> Details(Guid id,CancellationToken ct)
         {
+            ViewBag.blogPostId = id;
             //TODO: create helper method to display Image inside the Model
             var post = await _postService.GetPostByIdAsync(id, ct);
 
@@ -64,16 +64,14 @@ namespace MyWebsite.Controllers
         // POST: Blog/Create
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult> Create(BlogPostEntity postEntity,CancellationToken ct)
+        public async Task<ActionResult> Create(BlogPost post,CancellationToken ct)
         {
             try
             {
                 //if (ModelState.IsValid)
                 {
-                     postEntity.Id = Guid.NewGuid();
-                     postEntity.ApplicationUserId = User.Identity.GetUserId();
-
-                     var createdPost = await _postService.CreatePostAsync(postEntity, ct);
+                    var userId = User.Identity.GetUserId();
+                     var createdPost = await _postService.CreatePostAsync(post,userId, ct);
 
                      return RedirectToAction("Details", new { id = createdPost.Id });
                 }
@@ -102,9 +100,9 @@ namespace MyWebsite.Controllers
         {
             try
             {
-                var updatedPost =await _postService.UpdatePostAsync(id,post, ct);
+                await _postService.UpdatePostAsync(id,post, ct);
 
-                return View("Details", updatedPost);
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {

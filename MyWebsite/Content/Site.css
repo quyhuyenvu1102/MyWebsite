@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.comment-block {
+    padding:10px;
+    border: 1px solid #808080;
+    border-radius: 5%;
+    margin: 10px;
+}

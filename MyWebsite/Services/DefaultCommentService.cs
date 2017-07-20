@@ -12,18 +12,42 @@ namespace MyWebsite.Services
     {
         public readonly ApplicationDbContext _context;
 
-        public DefaultCommentService() {
-            _context = new ApplicationDbContext();
+        public DefaultCommentService():this(new ApplicationDbContext()){ }
+
+        public DefaultCommentService(ApplicationDbContext context) {
+            _context = context;
         }
 
-        public Task<Comment> CreateCommentAsync(Comment comment, CancellationToken ct)
+        public async Task<Comment> CreateCommentAsync(Comment comment,Guid blogPostId, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var blogPost = _context.BlogPosts.Where(r => r.Id == blogPostId).First();
+
+            var newComment = new CommentEntity
+            {
+                Id = Guid.NewGuid(),
+                ApplicationUserId = blogPost.User.Id,
+                CreatedAt = DateTimeOffset.Now,
+                ModifedAt = DateTimeOffset.Now,
+                Content = comment.Content,
+                BlogPostEntityId = blogPostId.ToString(),
+                BlogPostEntity = blogPost
+                
+            };
+
+             blogPost.Comments.Add(newComment);
+            _context.Comments.Add(newComment);
+            await _context.SaveChangesAsync();
+
+            return comment;
         }
 
-        public Task<Comment> DeleteCommentByIdAsync(Guid commentId, CancellationToken ct)
+        public async Task<Comment> DeleteCommentByIdAsync(Guid commentId, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var comment = _context.Comments.Where(r => r.Id == commentId).First();
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+
+            return null;
         }
 
         public Task<Comment> GetCommentByIdAsync(Guid commentId, CancellationToken ct)

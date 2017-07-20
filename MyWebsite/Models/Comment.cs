@@ -14,5 +14,7 @@ namespace MyWebsite.Models
         public DateTimeOffset ModifedAt { get; set; }
 
         public ApplicationUser Author { get; set; }
+
+        public Guid Id { get; set; }
     }
 }

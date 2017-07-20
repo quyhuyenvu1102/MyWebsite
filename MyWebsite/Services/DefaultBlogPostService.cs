@@ -19,8 +19,17 @@ namespace MyWebsite.Services
             _context = context;
         }
 
-        public async Task<BlogPostEntity> CreatePostAsync(BlogPostEntity postEntity,CancellationToken ct)
+        public async Task<BlogPostEntity> CreatePostAsync(BlogPost post,string userId,CancellationToken ct)
         {
+            var postEntity = new BlogPostEntity() {
+                ApplicationUserId = userId,
+                Content = post.Content,
+                Id = Guid.NewGuid(),
+                Image=post.Image,
+                Title=post.Title,
+                CreatedDate= DateTimeOffset.Now,
+                ModifiedDate = DateTimeOffset.Now
+            };
             _context.BlogPosts.Add(postEntity);
             await _context.SaveChangesAsync();
 
@@ -30,10 +39,14 @@ namespace MyWebsite.Services
         public BlogPost GetPostById(Guid postId)
         {
             var postEntity = _context.BlogPosts.Where(r => r.Id == postId).First();
+            if (postEntity == null) return null;
+            //TODO: use automapper to clean up the code
             var post = new BlogPost()
             {
                 Title = postEntity.Title,
                 Content = postEntity.Content,
+                CreatedDate = postEntity.CreatedDate,
+                ModifiedDate = postEntity.ModifiedDate,
                 Image = postEntity.Image,
                 Author = postEntity.User,
                 Comments = new List<Comment>()
@@ -65,6 +78,9 @@ namespace MyWebsite.Services
             {
                 Title = post.Title,
                 Content = post.Content,
+                Image = post.Image,
+                CreatedDate = post.CreatedDate,
+                ModifiedDate = post.ModifiedDate,
                 Comments = new List<Comment>(),
                 Author = post.User
             };
@@ -75,6 +91,9 @@ namespace MyWebsite.Services
             {
                 response.Comments.Add(new Comment()
                 {
+                    CreatedAt = commentEntity.CreatedAt,
+                    ModifedAt = commentEntity.ModifedAt,
+                    Id = commentEntity.Id,
                     Author = commentEntity.User,
                     Content = commentEntity.Content
                 });
@@ -104,6 +123,11 @@ namespace MyWebsite.Services
             postEntity.Title = post.Title;
             postEntity.Content = post.Content;
             postEntity.Image = post.Image;
+            postEntity.ModifiedDate = DateTimeOffset.Now;
+
+            post.Author = postEntity.User;
+            post.CreatedDate = postEntity.CreatedDate;
+            post.ModifiedDate = postEntity.ModifiedDate;
 
             await _context.SaveChangesAsync();
             return post;

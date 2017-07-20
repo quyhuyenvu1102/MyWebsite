@@ -99,3 +99,4 @@ c:\users\huyen vu\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\
 c:\users\huyen vu\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\Microsoft.AI.Web.xml
 c:\users\huyen vu\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Release\MyWebsite.dll
 c:\users\huyen vu\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Release\MyWebsite.pdb
+C:\Users\Huyen VU\Documents\Visual Studio 2017\Projects\MyWebsite\MyWebsite\obj\Release\MyWebsite.csprojResolveAssemblyReference.cache

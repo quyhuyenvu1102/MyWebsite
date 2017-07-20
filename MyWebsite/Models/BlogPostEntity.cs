@@ -11,9 +11,9 @@ namespace MyWebsite.Models
     {
         public Guid Id { get; set; }
 
-        //public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
 
-        //public DateTimeOffset ModifiedDate { get; set; }
+        public DateTimeOffset ModifiedDate { get; set; }
 
         [Required]
         public string Title { get; set; }

@@ -10,7 +10,7 @@ namespace MyWebsite.Services
 {
     public interface IBlogPostService
     {
-        Task<BlogPostEntity> CreatePostAsync(BlogPostEntity postEntity, CancellationToken ct);
+        Task<BlogPostEntity> CreatePostAsync(BlogPost post,string userId, CancellationToken ct);
 
         Task<BlogPost> UpdatePostAsync(Guid postId,BlogPost post,CancellationToken ct);
 

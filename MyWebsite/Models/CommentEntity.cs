@@ -25,7 +25,7 @@ namespace MyWebsite.Models
 
         [Required]
         public string BlogPostEntityId { get; set; }
-        public virtual BlogPostEntity BlogPost { get; set; }
+        public virtual BlogPostEntity BlogPostEntity { get; set; }
 
     }
 }
