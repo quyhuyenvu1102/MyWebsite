@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using MyWebsite.Models;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace MyWebsite.Services
 {
@@ -25,9 +26,9 @@ namespace MyWebsite.Services
                 ApplicationUserId = userId,
                 Content = post.Content,
                 Id = Guid.NewGuid(),
-                Image=post.Image,
-                Title=post.Title,
-                CreatedDate= DateTimeOffset.Now,
+                Image = post.Image,
+                Title = post.Title,
+                CreatedDate = DateTimeOffset.Now,
                 ModifiedDate = DateTimeOffset.Now
             };
             _context.BlogPosts.Add(postEntity);

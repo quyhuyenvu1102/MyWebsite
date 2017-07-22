@@ -10,7 +10,7 @@ namespace MyWebsite.Services
 {
     public interface ICommentService
     {
-        Task<Comment> CreateCommentAsync(Comment comment,Guid BlogPostId, CancellationToken ct);
+        Task<Comment> CreateCommentAsync(Comment comment,Guid BlogPostId,string UserId, CancellationToken ct);
 
         Task<Comment> UpdateCommentAsync(Guid commentId, Comment comment, CancellationToken ct);
 
@@ -18,6 +18,5 @@ namespace MyWebsite.Services
 
         Task<Comment> DeleteCommentByIdAsync(Guid commentId, CancellationToken ct);
         
-
     }
 }

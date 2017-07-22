@@ -5,10 +5,15 @@
 }
 
 <h2> An Interesting Welcome statement</h2>
+@{
+    if (Request.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
         <table class="table">
             <tr>
                 <th>
@@ -46,15 +51,21 @@
                         }
                         else
                         {
-                            @Html.DisplayFor(modelItem => item.Content)
-                            }
+                            @Html.DisplayFor(modelItem => item.Content) @Html.ActionLink("Read more...", "Details", new { id = item.Id })
                         }
+                    }
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                </td>
+                @{
+                    if (Request.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    }
+                }
+                
             </tr>
         }
 

@@ -24,7 +24,7 @@ namespace MyWebsite.Models
         public virtual ApplicationUser User { get; set; }
 
         [Required]
-        public string BlogPostEntityId { get; set; }
+        public String BlogPostEntityId { get; set; }
         public virtual BlogPostEntity BlogPostEntity { get; set; }
 
     }

@@ -79,6 +79,7 @@ namespace MyWebsite.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    ViewBag.UserId = User.Identity.GetUserId();
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -155,6 +156,8 @@ namespace MyWebsite.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, user.FirstName));
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     return RedirectToAction("Index", "Home");

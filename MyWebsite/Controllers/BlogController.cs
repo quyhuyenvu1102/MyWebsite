@@ -37,6 +37,7 @@ namespace MyWebsite.Controllers
         public async Task<ActionResult> Details(Guid id,CancellationToken ct)
         {
             ViewBag.blogPostId = id;
+            TempData["UserId"] = User.Identity.GetUserId();
             //TODO: create helper method to display Image inside the Model
             var post = await _postService.GetPostByIdAsync(id, ct);
 
@@ -55,7 +56,7 @@ namespace MyWebsite.Controllers
         }*/
 
         // GET: Blog/Create
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -63,7 +64,7 @@ namespace MyWebsite.Controllers
 
         // POST: Blog/Create
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult> Create(BlogPost post,CancellationToken ct)
         {
             try
@@ -84,7 +85,7 @@ namespace MyWebsite.Controllers
         }
 
         // GET: Blog/Edit/5
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             //TODO: use Automapper to clean up the code
@@ -95,7 +96,7 @@ namespace MyWebsite.Controllers
 
         // POST: Blog/Edit/5
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(Guid id, BlogPost post, CancellationToken ct)
         {
             try
@@ -112,7 +113,7 @@ namespace MyWebsite.Controllers
 
         // GET: Blog/Delete/5
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             var post = _postService.GetPostById(id);
@@ -122,7 +123,7 @@ namespace MyWebsite.Controllers
 
         // POST: Blog/Delete/5
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(Guid id, CancellationToken ct)
         {
             try

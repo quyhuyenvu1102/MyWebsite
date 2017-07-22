@@ -28,9 +28,18 @@
         </dd>  
 
     </dl>
-    @Html.Partial("_ViewComment", new MyWebsite.Models.CommentsViewModel { Comments = Model.Comments })
+    @Html.Partial("_ViewComment", new MyWebsite.Models.CommentsViewModel { Comments = Model.Comments.ToList() })
+    @{ 
+        if (Request.IsAuthenticated)
+        {
+            @Html.Partial("_CreateComment", new MyWebsite.Models.Comment { })
+        }
+        else {
+            <p class="col-md-12 col-md-offset-1"> @Html.ActionLink("Login","Login","Account") to post comments. </p>
+        }
 
-    @Html.Partial("_CreateComment", new MyWebsite.Models.Comment { })
+            }
+
 </div>
 
 <p>

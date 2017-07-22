@@ -33,8 +33,8 @@ namespace MyWebsite.Controllers
         [Authorize]
         [ActionName(nameof(Create))]
         public async Task<ActionResult> Create(Comment comment,Guid blogPostId,CancellationToken ct) {
-            
-            var newComment = await _service.CreateCommentAsync(comment,blogPostId, ct);
+            var userId = TempData["UserId"];
+            var newComment = await _service.CreateCommentAsync(comment,blogPostId,userId.ToString(), ct);
             return Redirect(Request.UrlReferrer.ToString());
             
         }

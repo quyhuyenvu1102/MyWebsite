@@ -23,9 +23,6 @@ namespace MyWebsite.Models
 
         public virtual ICollection<BlogPostEntity> BlogPosts { get; set; }
         
-
-
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -46,16 +43,9 @@ namespace MyWebsite.Models
         {
             return new ApplicationDbContext();
         }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<CommentEntity>().HasOptional(e => e.BlogPostEntity).WithMany();
+        
+        public IDbSet<BlogPostEntity> BlogPosts { get; set; }
 
-        //    base.OnModelCreating(modelBuilder);
-        //}
-
-
-        public DbSet<BlogPostEntity> BlogPosts { get; set; }
-
-        public DbSet<CommentEntity> Comments { get; set; }
+        public IDbSet<CommentEntity> Comments { get; set; }
     }
 }

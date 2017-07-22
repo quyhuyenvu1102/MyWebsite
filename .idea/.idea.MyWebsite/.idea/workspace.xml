@@ -7,14 +7,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/App_Data/aspnet-MyWebsite-20170716094310_log.ldf" afterPath="$PROJECT_DIR$/MyWebsite/App_Data/aspnet-MyWebsite-20170716094310_log.ldf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/bin/MyWebsite.dll" afterPath="$PROJECT_DIR$/MyWebsite/bin/MyWebsite.dll" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/bin/MyWebsite.pdb" afterPath="$PROJECT_DIR$/MyWebsite/bin/MyWebsite.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/obj/Debug/CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/MyWebsite/obj/Debug/CoreCompileInputs.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/MyWebsite/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.dll" afterPath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.dll" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.pdb" afterPath="$PROJECT_DIR$/MyWebsite/obj/Debug/MyWebsite.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/App_Start/Startup.Auth.cs" afterPath="$PROJECT_DIR$/MyWebsite/App_Start/Startup.Auth.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.MyWebsite/riderModule.iml" afterPath="$PROJECT_DIR$/.idea/.idea.MyWebsite/riderModule.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite.sln" afterPath="$PROJECT_DIR$/MyWebsite.sln" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Controllers/AccountController.cs" afterPath="$PROJECT_DIR$/MyWebsite/Controllers/AccountController.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Controllers/BlogController.cs" afterPath="$PROJECT_DIR$/MyWebsite/Controllers/BlogController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Services/DefaultCommentService.cs" afterPath="$PROJECT_DIR$/MyWebsite/Services/DefaultCommentService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Views/Home/Index.cshtml" afterPath="$PROJECT_DIR$/MyWebsite/Views/Home/Index.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Migrations/Configuration.cs" afterPath="$PROJECT_DIR$/MyWebsite/Migrations/Configuration.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/MyWebsite.csproj" afterPath="$PROJECT_DIR$/MyWebsite/MyWebsite.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Views/Blog/Index.cshtml" afterPath="$PROJECT_DIR$/MyWebsite/Views/Blog/Index.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWebsite/Views/Shared/_LoginPartial.cshtml" afterPath="$PROJECT_DIR$/MyWebsite/Views/Shared/_LoginPartial.cshtml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,32 +28,27 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BlogController.cs" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="BlogController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyWebsite/Controllers/BlogController.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
-              <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnitTest1.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyWebsiteTest/UnitTest1.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
-                <marker date="1500434505415" expanded="true" signature="6:261" ph="..." />
-                <marker date="1500434505415" expanded="true" signature="294:3917" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="341:3915" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="702:799" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="889:1003" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="1114:1411" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="1421:1714" ph="/* [Authorize] ... */" />
-                <marker date="1500434505415" expanded="true" signature="1800:1847" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="2011:2574" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="2037:2487" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="2518:2564" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="2665:2838" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="2998:3275" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3024:3188" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3219:3265" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3388:3493" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3642:3909" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3668:3822" ph="{...}" />
-                <marker date="1500434505415" expanded="true" signature="3840:3899" ph="{...}" />
+                <marker date="1500585475671" expanded="false" signature="6:102" ph="..." />
+                <marker date="1500585475671" expanded="true" signature="127:419" ph="{...}" />
+                <marker date="1500585475671" expanded="true" signature="172:417" ph="{...}" />
+                <marker date="1500585475671" expanded="true" signature="233:411" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -94,6 +92,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <PATH>
@@ -102,11 +101,11 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyWebsite (1 project)" />
+              <option name="myItemId" value="MyWebsite (2 projects)" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyWebsite" />
+              <option name="myItemId" value="MyWebsiteTest" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -116,15 +115,7 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyWebsite (1 project)" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyWebsite" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="MyWebsite (2 projects)" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -132,7 +123,6 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -163,13 +153,55 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
     <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="PROJECT_PATH" value="" />
-      <option name="PROJECT_KIND" value="None" />
-      <option name="PROJECT_TFM" value="" />
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/MyWebsite/MyWebsite.csproj" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5.2" />
+      <option name="EXE_PATH" value="C:/Program Files/IIS Express/iisexpress.exe" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;/config:$PROJECT_DIR$/.idea/config/applicationhost.config&quot; /site:MyWebsite /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MyWebsite" />
       <option name="USE_MONO" value="0" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <envs />
@@ -190,11 +222,12 @@
       <option name="presentableId" value="Default" />
       <updated>1500427407736</updated>
       <workItem from="1500427408881" duration="1440000" />
+      <workItem from="1500654595488" duration="213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1440000" />
+    <option name="totallyTimeSpent" value="1653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -207,28 +240,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="0" width="1932" height="1048" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.50208986" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791014" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -245,28 +277,37 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MyWebsite/Controllers/BlogController.cs">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyWebsite/MyWebsite.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyWebsite/Controllers/BlogController.cs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
-          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyWebsiteTest/UnitTest1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <marker date="1500434505415" expanded="true" signature="6:261" ph="..." />
-            <marker date="1500434505415" expanded="true" signature="294:3917" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="341:3915" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="702:799" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="889:1003" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="1114:1411" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="1421:1714" ph="/* [Authorize] ... */" />
-            <marker date="1500434505415" expanded="true" signature="1800:1847" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="2011:2574" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="2037:2487" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="2518:2564" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="2665:2838" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="2998:3275" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3024:3188" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3219:3265" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3388:3493" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3642:3909" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3668:3822" ph="{...}" />
-            <marker date="1500434505415" expanded="true" signature="3840:3899" ph="{...}" />
+            <marker date="1500585475671" expanded="false" signature="6:102" ph="..." />
+            <marker date="1500585475671" expanded="true" signature="127:419" ph="{...}" />
+            <marker date="1500585475671" expanded="true" signature="172:417" ph="{...}" />
+            <marker date="1500585475671" expanded="true" signature="233:411" ph="{...}" />
           </folding>
         </state>
       </provider>

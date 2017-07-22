@@ -18,26 +18,25 @@ namespace MyWebsite.Services
             _context = context;
         }
 
-        public async Task<Comment> CreateCommentAsync(Comment comment,Guid blogPostId, CancellationToken ct)
+        public async Task<Comment> CreateCommentAsync(Comment comment,Guid blogPostId,string userId, CancellationToken ct)
         {
+            
             var blogPost = _context.BlogPosts.Where(r => r.Id == blogPostId).First();
-
+            comment.Author = _context.Users.Find(userId);
             var newComment = new CommentEntity
             {
                 Id = Guid.NewGuid(),
-                ApplicationUserId = blogPost.User.Id,
                 CreatedAt = DateTimeOffset.Now,
                 ModifedAt = DateTimeOffset.Now,
                 Content = comment.Content,
                 BlogPostEntityId = blogPostId.ToString(),
-                BlogPostEntity = blogPost
-                
+                BlogPostEntity = blogPost,
+                ApplicationUserId = userId
             };
 
              blogPost.Comments.Add(newComment);
             _context.Comments.Add(newComment);
             await _context.SaveChangesAsync();
-
             return comment;
         }
 
