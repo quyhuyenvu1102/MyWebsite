@@ -26,7 +26,6 @@
         <dd>
             @Html.DisplayFor(model => model.Content)
         </dd>  
-
     </dl>
     @Html.Partial("_ViewComment", new MyWebsite.Models.CommentsViewModel { Comments = Model.Comments.ToList() })
     @{ 
@@ -37,8 +36,7 @@
         else {
             <p class="col-md-12 col-md-offset-1"> @Html.ActionLink("Login","Login","Account") to post comments. </p>
         }
-
-            }
+}
 
 </div>
 
@@ -46,3 +44,19 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@section scripts{
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+<script>
+    function CommentViewModel() {
+        self = this;
+
+        self.message = ko.observable('');
+        self.remainingCharacters = ko.computed(function () {
+            return 300 - self.message().length;
+        });
+    }
+
+    ko.applyBindings(new CommentViewModel());
+</script>
+    }

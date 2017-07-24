@@ -1,5 +1,6 @@
 ﻿@model MyWebsite.Models.Comment
 @{
+
 }
 @using (Html.BeginForm("Create", "Comment", new { blogPostId = ViewBag.blogPostId }))
 {
@@ -12,17 +13,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Content, new { @class = "form-control" })
+                @Html.TextAreaFor(model => model.Content, new { @class = "form-control", @maxlength = "300", @id = "txtComment", @data_bind = "value:message,valueUpdate:'input'" })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
+                <span style="margin-left: 30px" data-bind="text:remainingCharacters"></span> characters remaining
             </div>
         </div>
     </div>
 }
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }

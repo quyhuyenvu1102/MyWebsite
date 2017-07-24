@@ -3,7 +3,7 @@
 
 @{ 
     var identity = (ClaimsIdentity)User.Identity;
-    var name = identity.FindFirstValue(ClaimTypes.GivenName);
+    var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? User.Identity.GetUserName() ;
 
 }
 @if (Request.IsAuthenticated)

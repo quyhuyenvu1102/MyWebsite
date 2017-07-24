@@ -35,8 +35,7 @@ namespace MyWebsite.Controllers
         public async Task<ActionResult> Create(Comment comment,Guid blogPostId,CancellationToken ct) {
             var userId = TempData["UserId"];
             var newComment = await _service.CreateCommentAsync(comment,blogPostId,userId.ToString(), ct);
-            return Redirect(Request.UrlReferrer.ToString());
-            
+            return PartialView("_ViewComment");
         }
 
         [Authorize]
