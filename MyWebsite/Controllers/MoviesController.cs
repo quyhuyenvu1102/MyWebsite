@@ -54,7 +54,7 @@ namespace MyWebsite.Controllers
         }
 
         // GET: Movies/Create
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -65,7 +65,7 @@ namespace MyWebsite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,Title,Genre,Image,ReleasedDate,Plot,Price")] MovieEntity movieEntity)
         {
             if (ModelState.IsValid)
@@ -80,7 +80,7 @@ namespace MyWebsite.Controllers
         }
 
         // GET: Movies/Edit/5
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -100,7 +100,7 @@ namespace MyWebsite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Title,Genre,Image,ReleasedDate,Plot,Price")] MovieEntity movieEntity)
         {
             if (ModelState.IsValid)
@@ -113,7 +113,7 @@ namespace MyWebsite.Controllers
         }
 
         // GET: Movies/Delete/5
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -131,7 +131,7 @@ namespace MyWebsite.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(Guid id)
         {
             MovieEntity movieEntity = db.Movies.Find(id);
@@ -139,7 +139,7 @@ namespace MyWebsite.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)

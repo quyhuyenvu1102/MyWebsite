@@ -1,0 +1,140 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@using Microsoft.Owin.Security;
+@model IEnumerable<MyWebsite.Models.MovieEntity>
+
+@{
+    ViewBag.Title = "Index";
+    var UserManager = Request.GetOwinContext().Get<ApplicationUserManager>();
+    IList<string> userRoles = null;
+    if (User.Identity.GetUserId() != null)
+    {
+        userRoles = UserManager.GetRoles(User.Identity.GetUserId());
+    }
+
+}
+
+<h2>Index</h2>
+
+<div>
+    @using (Html.BeginForm("Index", "Movies", FormMethod.Get)) {
+        <p>Title: </p>@Html.TextBox("searchString") <p>Genre: </p> @Html.DropDownList("MovieGenre","All")
+        <input type="submit" value="Filter" />
+    }
+</div>
+@if (Request.IsAuthenticated && userRoles.Contains("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+
+<div class=" row">
+    @foreach(var movie in Model) { 
+    <div class="col-md-4">
+        <img src="@movie.Image" class="img-responsive thumbnail"/>
+        <table>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Title)
+                </td>
+                <td>
+                    <strong>
+                        @Html.DisplayFor(modelItem => movie.Title)
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model=> model.Genre)
+                </td>
+                <td>
+                    <strong>
+                        @Html.DisplayFor(modelItem => movie.Genre)
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model=> model.Price)
+                </td>
+                <td>
+                    <strong>
+                        @Html.DisplayFor(modelItem => movie.Price)
+                    </strong>
+                </td>
+            </tr>
+            
+               
+                <tr>
+                    <td colspan="2">
+                        @Html.ActionLink("Details", "Details", new { id = movie.Id })
+                    </td>
+                </tr>
+            @if (Request.IsAuthenticated && userRoles.Contains("Admin"))
+            {
+                <tr>
+                    <td colspan="2">
+                        @Html.ActionLink("Edit", "Edit", new { id = movie.Id })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.ActionLink("Delete", "Delete", new { id = movie.Id })
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+
+    </div>
+    }
+</div>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleasedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleasedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

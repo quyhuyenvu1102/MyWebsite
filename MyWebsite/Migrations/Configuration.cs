@@ -30,7 +30,7 @@ namespace MyWebsite.Migrations
                     Email = "quyhuyen.vu@gmail.com",
                     UserName = "quyhuyen.vu@gmail.com"
                 };
-
+                
                 userManager.Create(user, "password**");
 
                 context.Roles.AddOrUpdate(r => r.Name, new IdentityRole {Name = "Admin" });

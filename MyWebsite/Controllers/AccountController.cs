@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyWebsite.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MyWebsite.Controllers
 {
@@ -154,13 +155,30 @@ namespace MyWebsite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    _dbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+
+                    if(!_dbContext.Roles.Any(r=> r.Name == "Admin"))
+                        _dbContext.Roles.Add(new IdentityRole("Admin"));
+
+                    if(!_dbContext.Roles.Any(r=>r.Name == "Member"))
+                        _dbContext.Roles.Add(new IdentityRole("Member"));
+
+                    _dbContext.SaveChanges();
                     UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, user.FirstName));
+                    if (user.FirstName.Equals("Admin"))
+                    {
+                        UserManager.AddToRole(user.Id, "Admin");
+                    }
+                    else {
+                        UserManager.AddToRole(user.Id, "Member");
+                    }
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
