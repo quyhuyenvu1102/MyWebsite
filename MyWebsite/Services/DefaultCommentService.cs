@@ -21,7 +21,9 @@ namespace MyWebsite.Services
         public async Task<Comment> CreateCommentAsync(Comment comment,Guid blogPostId,string userId, CancellationToken ct)
         {
             
-            var blogPost = _context.BlogPosts.Where(r => r.Id == blogPostId).First();
+            var blogPost = _context.BlogPosts.Where(r => r.Id == blogPostId).FirstOrDefault();
+            if (blogPost == null)
+                return null;
             comment.Author = _context.Users.Find(userId);
             var newComment = new CommentEntity
             {

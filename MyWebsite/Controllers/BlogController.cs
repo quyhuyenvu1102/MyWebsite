@@ -36,6 +36,9 @@ namespace MyWebsite.Controllers
         // GET: Blog/Details/5
         public async Task<ActionResult> Details(Guid id,CancellationToken ct)
         {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            
             ViewBag.blogPostId = id;
             TempData["UserId"] = User.Identity.GetUserId();
             //TODO: create helper method to display Image inside the Model
@@ -88,9 +91,14 @@ namespace MyWebsite.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             //TODO: use Automapper to clean up the code
             var post = _postService.GetPostById(id);
-            
+
+            if (post == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             return View(post);
         }
 
@@ -116,7 +124,12 @@ namespace MyWebsite.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             var post = _postService.GetPostById(id);
+            if (post == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
             return View(post);
         }
@@ -128,6 +141,9 @@ namespace MyWebsite.Controllers
         {
             try
             {
+                if (id == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
                 await _postService.RemovePostAsync(id,ct);
                 
                 return RedirectToAction("Index");

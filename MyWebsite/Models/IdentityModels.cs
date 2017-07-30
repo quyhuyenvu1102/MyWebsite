@@ -47,5 +47,7 @@ namespace MyWebsite.Models
         public IDbSet<BlogPostEntity> BlogPosts { get; set; }
 
         public IDbSet<CommentEntity> Comments { get; set; }
+
+        public IDbSet<MovieEntity> Movies { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using MyWebsite.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -33,9 +34,17 @@ namespace MyWebsite.Controllers
         [Authorize]
         [ActionName(nameof(Create))]
         public async Task<ActionResult> Create(Comment comment,Guid blogPostId,CancellationToken ct) {
+            if (blogPostId == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            if (String.IsNullOrEmpty(comment.Content))
+                return Redirect(Request.UrlReferrer.ToString());
             var userId = TempData["UserId"];
             var newComment = await _service.CreateCommentAsync(comment,blogPostId,userId.ToString(), ct);
-            return PartialView("_ViewComment");
+
+            if (newComment == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         [Authorize]

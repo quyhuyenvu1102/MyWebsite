@@ -17,6 +17,7 @@ namespace MyWebsite.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _dbContext;
 
         public AccountController()
         {
@@ -68,6 +69,7 @@ namespace MyWebsite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            _dbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -79,7 +81,9 @@ namespace MyWebsite.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    ViewBag.UserId = User.Identity.GetUserId();
+                    var user = _dbContext.Users.Where(u => u.Email.Equals(model.Email)).FirstOrDefault();
+                    ViewBag.UserId = user.Id;
+                    TempData["UserRole"] = UserManager.GetRoles(user.Id);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
