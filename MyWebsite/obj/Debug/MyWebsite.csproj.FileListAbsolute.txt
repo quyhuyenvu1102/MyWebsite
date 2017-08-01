@@ -123,8 +123,8 @@ C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.Migrations.init.resources
-C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.csproj.GenerateResource.Cache
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.dll
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.pdb
 C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.csprojResolveAssemblyReference.cache
+C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.Migrations.init.resources
+C:\Users\Huyen VU\documents\visual studio 2017\Projects\MyWebsite\MyWebsite\obj\Debug\MyWebsite.csproj.GenerateResource.Cache

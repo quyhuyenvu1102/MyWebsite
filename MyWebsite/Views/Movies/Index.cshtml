@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
 @using Microsoft.AspNet.Identity.Owin;
 @using Microsoft.Owin.Security;
+@using Newtonsoft.Json;
 @model IEnumerable<MyWebsite.Models.MovieEntity>
 
 @{
@@ -11,7 +12,6 @@
     {
         userRoles = UserManager.GetRoles(User.Identity.GetUserId());
     }
-
 }
 
 <h2>Index</h2>
@@ -29,8 +29,76 @@
     </p>
 }
 
+<div class="row" data-bind="foreach:currentMovies">
+    <div class="col-md-4">
+        <img data-bind="attr:{src:Image}" class="thumbnail"/>
+        <table>
+            <tr>
+                <td>
+                    <p><strong>Title:</strong></p>
+                </td>
+                <td>
+                    <p data-bind="text:Title"></p>
+                </td>
+            </tr>
 
-<div class=" row">
+            <tr>
+                <td>
+                    <p><strong>Genre:</strong></p>
+                </td>
+                <td>
+                    <p data-bind="text:Genre"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Released Date:</strong> </p>
+                </td>
+                <td>
+                    <p data-bind="text:ReleasedDate"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Price: </strong></p>
+                </td>
+                <td>
+                    <p data-bind="text:Price"></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a data-bind="attr:{'href': '@Url.Action("Details","Movies")/'+Id}">Details</a>
+                </td>
+            </tr>
+
+            @if(Request.IsAuthenticated && userRoles.Contains("Admin"))
+            {
+                <tr>
+                    <td colspan="2">
+                        <a data-bind="attr:{'href' : '@Url.Action("Edit", "Movies")/' + Id}">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a data-bind="attr:{'href':'@Url.Action("Delete","Movies")/' + Id}">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div class="row" style="line-height:3em">
+    <div>
+        <span class="glyphicon glyphicon-circle-arrow-left" style="cursor:pointer" data-bind="click:prevPage(),visible: currentPage()>1"></span>
+        <span data-bind="text:currentPage()"></span>
+        <span class="glyphicon glyphicon-circle-arrow-right" style="cursor:pointer" data-bind="click:nextPage(),visible:currentPage()<lastPage"></span>
+    </div>
+</div>
+
+@*<div class=" row">
     @foreach(var movie in Model) { 
     <div class="col-md-4">
         <img src="@movie.Image" class="img-responsive thumbnail"/>
@@ -91,50 +159,33 @@
 
     </div>
     }
-</div>
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleasedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
+</div>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleasedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+@section scripts{
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script>
+        function MoviesViewModel() {
+            var Self = this;
+            Self.movies = @Html.Raw(JsonConvert.SerializeObject(Model, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore }));
 
-</table>*@
+            Self.pageSize = 6;
+            Self.currentPage = ko.observable(1);
+
+            Self.lastPage = Math.ceil(Self.movies.length / Self.pageSize);
+            Self.currentMovies = ko.computed(function () {
+                var beginIndex = (Self.currentPage() - 1) * Self.pageSize;
+                var endIndex = beginIndex + Self.pageSize;
+                return Self.movies.slice(beginIndex, endIndex);
+            });
+            
+            Self.nextPage = function () {
+                Self.currentPage(Self.currentPage() + 1);
+            };
+
+            Self.prevPage = function () {
+                Self.currentPage(Self.currentPage() - 1);
+            };
+        }
+        ko.applyBindings(new MoviesViewModel());
+    </script>
+    }

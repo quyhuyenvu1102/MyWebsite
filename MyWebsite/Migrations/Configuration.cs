@@ -22,7 +22,10 @@ namespace MyWebsite.Migrations
         {
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
-
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //{
+            //    System.Diagnostics.Debugger.Launch();
+            //}
             if (!context.Users.Any(u => u.UserName == "quyhuyen.vu@gmail.com")) {
                 var user = new ApplicationUser() {
                     FirstName = "Huyen",
@@ -34,12 +37,377 @@ namespace MyWebsite.Migrations
                 userManager.Create(user, "password**");
 
                 context.Roles.AddOrUpdate(r => r.Name, new IdentityRole {Name = "Admin" });
+
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),   
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10m
+                });
+
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+                context.Movies.Add(new MovieEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Spider-Man: Homecoming (2017)",
+                    Genre = "Action",
+                    ReleasedDate = DateTime.Now,
+                    Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                    Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                    Price = 10
+                });
+
                 context.SaveChanges();
 
                 userManager.AddToRole(user.Id, "Admin");
                 userManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, user.FirstName));
             }
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10m
+            });
 
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+            context.Movies.Add(new MovieEntity()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Spider-Man: Homecoming (2017)",
+                Genre = "Action",
+                ReleasedDate = DateTime.Now,
+                Image = "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                Plot = "Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened. Written by Benett Sullivan ",
+                Price = 10
+            });
+
+            context.SaveChanges();
 
 
 

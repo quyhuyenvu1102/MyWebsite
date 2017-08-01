@@ -172,14 +172,14 @@ namespace MyWebsite.Controllers
 
                     _dbContext.SaveChanges();
                     UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, user.FirstName));
-                    if (user.FirstName.Equals("Admin"))
-                    {
-                        UserManager.AddToRole(user.Id, "Admin");
-                    }
-                    else {
-                        UserManager.AddToRole(user.Id, "Member");
-                    }
-
+                    //if (user.FirstName.Equals("Admin"))
+                    //{
+                    //    UserManager.AddToRole(user.Id, "Admin");
+                    //}
+                    //else {
+                        
+                    //}
+                    UserManager.AddToRole(user.Id, "Member");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     return RedirectToAction("Index", "Home");

@@ -32,22 +32,5 @@ namespace MyWebsite.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-        
-        public IDbSet<BlogPostEntity> BlogPosts { get; set; }
-
-        public IDbSet<CommentEntity> Comments { get; set; }
-
-        public IDbSet<MovieEntity> Movies { get; set; }
-    }
+    
 }
