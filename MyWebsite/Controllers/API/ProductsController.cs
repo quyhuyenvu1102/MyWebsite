@@ -10,9 +10,9 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using MyWebsite.Models;
 using MyWebsite.Models.API;
-using MyWebsite.Services.API;
 using System.Threading.Tasks;
 using System.Threading;
+using MyWebsite.Repository.API;
 
 namespace MyWebsite.Controllers.API
 {
@@ -20,8 +20,6 @@ namespace MyWebsite.Controllers.API
     public class ProductsController : ApiController
     {
         public readonly IProductAPIService _service;
-
-        public ProductsController() : this(new DefaultProductService()) { }
 
         public ProductsController(IProductAPIService service) {
             _service = service;     

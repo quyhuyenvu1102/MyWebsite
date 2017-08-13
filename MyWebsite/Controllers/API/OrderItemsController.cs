@@ -16,7 +16,7 @@ namespace MyWebsite.Controllers.API
     {
         public readonly IOrderItemService _service;
         
-        public OrderItemsController():this(new DefaultOrderItemService()) { }
+        //public OrderItemsController():this(new DefaultOrderItemService()) { }
 
         public OrderItemsController(IOrderItemService service)
         {

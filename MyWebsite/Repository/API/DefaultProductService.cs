@@ -8,7 +8,7 @@ using System.Data.Entity;
 using System.Web.Http;
 using System.Threading;
 
-namespace MyWebsite.Services.API
+namespace MyWebsite.Repository.API
 {
     public class DefaultProductService : IProductAPIService
     {

@@ -11,11 +11,11 @@ namespace MyWebsite.Repository.API
 {
     public class DefaultOrderService : IOrderApiService
     {
-        private readonly ApiDbContext _context;
+        private readonly IApiDbContext _context;
 
         public DefaultOrderService() : this(new ApiDbContext()) { }
 
-        public DefaultOrderService(ApiDbContext context) {
+        public DefaultOrderService(IApiDbContext context) {
             _context = context;
             //_context.Configuration.ProxyCreationEnabled = false;
         }

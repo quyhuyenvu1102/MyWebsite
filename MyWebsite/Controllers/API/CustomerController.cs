@@ -16,7 +16,7 @@ namespace MyWebsite.Controllers.API
     {
         public ICustomerAPIService _service;
 
-        public CustomerController():this(new DefaultCustomerService()) { }
+        //public CustomerController():this(new DefaultCustomerService()) { }
 
         public CustomerController(ICustomerAPIService service) {
             _service = service;

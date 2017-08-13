@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace MyWebsite.Services.API
+namespace MyWebsite.Repository.API
 {
     public interface IProductAPIService
     {

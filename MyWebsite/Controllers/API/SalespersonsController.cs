@@ -16,8 +16,6 @@ namespace MyWebsite.Controllers.API
     {
         public readonly ISalespersonService _service;
 
-        public SalespersonsController():this(new DefaultSalespersonService()) { }
-
         public SalespersonsController(ISalespersonService service) {
             _service = service;
         }

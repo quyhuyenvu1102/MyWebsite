@@ -29,7 +29,8 @@ namespace MyWebsite.Services
                 Image = post.Image,
                 Title = post.Title,
                 CreatedDate = DateTimeOffset.Now,
-                ModifiedDate = DateTimeOffset.Now
+                ModifiedDate = DateTimeOffset.Now,
+                Comments = new Collection<CommentEntity>()
             };
             _context.BlogPosts.Add(postEntity);
             await _context.SaveChangesAsync(ct);

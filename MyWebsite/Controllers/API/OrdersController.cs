@@ -18,7 +18,7 @@ namespace MyWebsite.Controllers.API
     {
         public readonly IOrderApiService _service;
 
-        public OrdersController() : this(new DefaultOrderService()) { }
+        //public OrdersController() : this(new DefaultOrderService()) { }
 
         public OrdersController(IOrderApiService service) {
             _service = service;
