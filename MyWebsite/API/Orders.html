@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Orders App</title>
+</head>
+<body>
+    <div>
+        <h2>Orders List</h2>
+        <ul id="orders"></ul>
+    </div>
+
+    <div>
+        <h2>Search By Id</h2>
+        <input type="text" id="orderId" size="5"/>
+        <input type="button" value="Search" onclick="find();"/>
+        <p id="order"></p>
+    </div>
+
+    <script src="../Scripts/jquery-3.1.1.min.js"></script>
+    <script>
+        var uri = "orders"
+
+        $(document).ready(function () {
+            $.getJSON(uri)
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<li>', { text: formatItem(item) }).appendTo($('#orders'));
+                    });
+                });
+        });
+
+        function formatItem(item) {
+            return " Id: " + item.OrderId
+                + " Date: " + item.Date
+                + " Total Due:" + item.TotalDue
+                + " Status: " + item.Status;
+        }
+
+        function find() {
+            var id = $('#orderId').val();
+
+            $.getJSON(uri + '/?id=' + id)
+                .done(function (data) {
+                    $('#order').text(formatItem(data));
+                }).fail(function (jqXHR, textStatus, err) {
+                    $('#order').text('Error: ' + err);
+                });
+        }
+    </script>
+</body>
+</html>

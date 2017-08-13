@@ -9,7 +9,7 @@
     {
     <dl class="dl-horizontal">
         @{ 
-            foreach (var item in Model.Comments) {
+            foreach (var item in Model.Comments.ToList()) {
                 <dd>
                     <div class="comment-block">
                         <div class="comment-header">

@@ -1,4 +1,5 @@
-﻿using MyWebsite.Models;
+﻿using MyWebsite.App_Start;
+using MyWebsite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace MyWebsite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            IocConfig.UnityContainerConfig();
         }
         
     }

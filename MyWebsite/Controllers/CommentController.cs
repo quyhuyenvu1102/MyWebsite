@@ -17,7 +17,7 @@ namespace MyWebsite.Controllers
     {
         public readonly ICommentService _service;
 
-        public CommentController() : this(new DefaultCommentService()) { }
+        //public CommentController():this(new DefaultCommentService(new ApplicationDbContext())) { }
 
         public CommentController(ICommentService service) {
             _service = service;
@@ -34,17 +34,23 @@ namespace MyWebsite.Controllers
         [Authorize]
         [ActionName(nameof(Create))]
         public async Task<ActionResult> Create(Comment comment,Guid blogPostId,CancellationToken ct) {
-            if (blogPostId == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if(ModelState.IsValid)
+            {
 
-            if (String.IsNullOrEmpty(comment.Content))
+                if (blogPostId == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (String.IsNullOrEmpty(comment.Content))
+                    return Redirect(Request.UrlReferrer.ToString());
+                var userId = TempData["UserId"];
+                var newComment = await _service.CreateCommentAsync(comment,blogPostId,userId.ToString(), ct);
+
+                if (newComment == null)
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
                 return Redirect(Request.UrlReferrer.ToString());
-            var userId = TempData["UserId"];
-            var newComment = await _service.CreateCommentAsync(comment,blogPostId,userId.ToString(), ct);
 
-            if (newComment == null)
-                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            return Redirect(Request.UrlReferrer.ToString());
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [Authorize]

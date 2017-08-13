@@ -27,7 +27,7 @@
             @Html.DisplayFor(model => model.Content)
         </dd>  
     </dl>
-    @Html.Partial("_ViewComment", new MyWebsite.Models.CommentsViewModel { Comments = Model.Comments.ToList() })
+    @Html.Partial("_ViewComment", new MyWebsite.Models.CommentsViewModel { Comments = Model.Comments.AsQueryable().OrderBy(c => c.CreatedAt) })
     @{ 
         if (Request.IsAuthenticated)
         {

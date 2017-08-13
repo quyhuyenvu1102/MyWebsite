@@ -40,7 +40,6 @@ namespace MyWebsite.Controllers
         public ActionResult Details(Guid? id)
         {
 
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

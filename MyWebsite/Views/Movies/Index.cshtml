@@ -93,7 +93,7 @@
 <div class="row" style="line-height:3em">
     <div>
         <span class="glyphicon glyphicon-circle-arrow-left" style="cursor:pointer" data-bind="click:prevPage(),visible: currentPage()>1"></span>
-        <span data-bind="text:currentPage()"></span>
+        <span>Page: </span><span data-bind="text:currentPage()"></span><span>/</span> <span data-bind="text:lastPage"></span>
         <span class="glyphicon glyphicon-circle-arrow-right" style="cursor:pointer" data-bind="click:nextPage(),visible:currentPage()<lastPage"></span>
     </div>
 </div>

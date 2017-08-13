@@ -17,13 +17,11 @@ namespace MyWebsite.Controllers
         //TODO: update createdAt properties
 
         public readonly IBlogPostService _postService;
-        public readonly ICommentService _commentService;
-        
-        public BlogController() : this(new DefaultBlogPostService(), new DefaultCommentService()) { }
 
-        public BlogController(IBlogPostService postService, ICommentService commentService) {
+        //public BlogController():this(new DefaultBlogPostService(new ApplicationDbContext())) { }
+        
+        public BlogController(IBlogPostService postService) {
             _postService = postService;
-            _commentService = commentService;
         }
 
         // GET: Blog
