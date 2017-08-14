@@ -4,6 +4,7 @@ using MyWebsite.Models.API;
 using MyWebsite.Repository.API;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace MyWebsite.Controllers.API
             _service = service;
         }
         // GET: api/Orders
-        public IEnumerable<Order> Get()
+        public async Task<IEnumerable<Order>> Get(CancellationToken ct)
         {
             //Mapper.Initialize(cfg => cfg.CreateMap<Order,OrderModel>()
             //.ForMember(dest=>dest.TotalDue, opt=> opt.MapFrom(src=> src.TotalDue/100m)));
@@ -32,7 +33,7 @@ namespace MyWebsite.Controllers.API
 
             //var orders = _service.GetAll().ProjectTo<OrderModel>();
             
-            return _service.GetAll().ToList(); 
+            return await _service.GetAll().ToListAsync(ct); 
         }
 
         // GET: api/Orders/5
@@ -63,7 +64,7 @@ namespace MyWebsite.Controllers.API
                 }
                 throw;
             }
-            return CreatedAtRoute("DefaultApi", new { id = order.OrderId }, order);
+            return CreatedAtRoute("OrderRoute", new { id = order.OrderId }, order);
         }
 
         // PUT: api/Orders/5

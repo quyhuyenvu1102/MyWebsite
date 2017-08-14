@@ -16,7 +16,32 @@
         <input type="button" value="Search" onclick="find();" />
         <p id="customer"></p>
     </div>
+    <div>
+        <h2>Create a new Customer</h2>
+        <form method="post" action="Customers">
+            <p>Customer ID</p>
+            <input type="text" name="CustomerId" />
+            <p>First Name</p>
+            <input type="text" name="FirstName" />
+            <p>Last Name</p>
+            <input type="text" name="LastName" />
+            <p>Email</p>
+            <input type="text" name="Email" />
+            <p>Phone</p>
+            <input type="text" name="Phone" />
+            <p>Address</p>
+            <input type="text" name="Address" />
+            <p>City</p>
+            <input type="text" name="City" />
+            <p>State</p>
+            <input type="text" name="State" />
+            <p>Zipcode</p>
+            <input type="text" name="Zipcode" />
 
+            <br />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
 
     <script src="../Scripts/jquery-3.1.1.min.js"></script>
     <script>

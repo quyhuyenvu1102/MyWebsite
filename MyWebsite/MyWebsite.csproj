@@ -301,10 +301,6 @@
     <Content Include="App_Data\aspnet-MyWebsite-20170716094311_log.ldf">
       <DependentUpon>aspnet-MyWebsite-20170716094311.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\IceCreamAPI.mdf" />
-    <Content Include="App_Data\IceCreamAPI_log.ldf">
-      <DependentUpon>IceCreamAPI.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

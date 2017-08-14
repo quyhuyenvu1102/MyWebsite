@@ -33,8 +33,8 @@ namespace MyWebsite.Controllers.API
         //}
 
         // GET: api/Products
-        public IEnumerable<Product> GetProducts()
-            => _service.GetAll().ToList();
+        public async Task<IEnumerable<Product>> GetProducts(CancellationToken ct)
+            => await _service.GetAll().ToListAsync(ct);
 
         // GET: api/Products/5
         //[ResponseType(typeof(Product))]
@@ -106,7 +106,7 @@ namespace MyWebsite.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = product.ProductId }, product);
+            return CreatedAtRoute("ProductsRoute", new { id = product.ProductId }, product);
         }
 
         // DELETE: api/Products/5

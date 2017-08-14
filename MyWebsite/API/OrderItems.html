@@ -17,14 +17,61 @@
         <p id="orderItem"></p>
     </div>
 
+    <div>
+        <h2>Create a new OrderItem</h2>
+        <form method="post" action="OrderItems">
+            <p>OrderItem Id</p>
+            <input type="text" name="OrderItemId" />
+            <p>Quantity</p>
+            <input type="text" name="Quantity" />
+
+            <p>Order Id</p>
+            <select id="DropListOrderId" name="OrderId">
+                <option disabled style="display:none">Select Order Id</option>
+            </select>
+
+            <p>Product Id</p>
+            <select id="productIdDropList" name="ProductId">
+                <option disabled style="display:none">Select Product Id</option>
+            </select>
+            <br /><br />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+
     <script src="../Scripts/jquery-3.1.1.min.js"></script>
     <script>
         var uri = "orderitems";
         $(document).ready(function () {
-            
-            $.getJSON(uri).done(function (data) {
+
+            $.ajax({
+                url: uri,
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    $.each(data, function (key, item) {
+                        $('<li>', {
+                            text: formatItem(item)
+                        }).appendTo('#orderItem')
+                    });
+                }
+            });
+
+            $.ajax({
+                url: "products",
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    $.each(data, function (key, item) {
+                        $('<option>', { value: item.ProductId, text: item.ProductId }).appendTo($('#productIdDropList'));
+                    });
+                }
+            });
+           
+
+            $.getJSON("orders").done(function (data) {
                 $.each(data, function (key, item) {
-                    $('<li>', { text: formatItem(item) }).appendTo($('#OrderItems'));
+                    $('<option>', { value: item.OrderId, text: item.OrderId }).appendTo($('#DropListOrderId'));
                 });
             });
 
@@ -45,7 +92,6 @@
                     $('#orderItem').text(err);
                 });
         }
-
     </script>
 
 </body>

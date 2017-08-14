@@ -2,6 +2,7 @@
 using MyWebsite.Repository.API;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,8 +25,8 @@ namespace MyWebsite.Controllers.API
         }
 
         // GET: api/OrderItems
-        public IEnumerable<OrderItem> Get()
-            => _service.GetAll().ToList();
+        public async Task<IEnumerable<OrderItem>> Get(CancellationToken ct)
+            => await _service.GetAll().ToListAsync(ct);
 
         // GET: api/OrderItems/5
         public async Task<IHttpActionResult> Get(int id, CancellationToken ct)
@@ -60,7 +61,7 @@ namespace MyWebsite.Controllers.API
                 }
                 throw;
             }
-            return CreatedAtRoute("DefaultApi", new { id = item.OrderItemId }, item);
+            return CreatedAtRoute("OrderItemRoute", new { id = item.OrderItemId }, item);
         }
 
         // PUT: api/OrderItems/5

@@ -15,6 +15,27 @@
         <p id="product" />
     </div>
 
+    <div>
+        <h2>Create Product</h2>
+        <form method="post" action="products">
+            <span>ProductId: </span>
+            <input type="text" name="ProductId"/>
+            <span>Product Name</span>
+            <input type="text" name="ProductName"/>
+            <span>Size</span>
+            <input type="text" name="Size"/>
+            <span>Variety</span>
+            <input type="text" name="Variety"/>
+            <span>Price</span>
+            <input type="text" name="Price" />
+            <span>Status</span>
+            <input type="text" name="Status" />
+
+            <input type="submit" value="Create" />
+        </form>
+
+    </div>
+
     <script src="../../Scripts/jquery-3.1.1.min.js"></script>
     <script>
     var uri = 'products';
@@ -33,7 +54,7 @@
 
         function formatItem(item) {
         // Note: productId Is a string
-      return item.ProductName + ': $' + item.Price +"ID: "  + item.ProductId;
+      return item.ProductName + ': $' + item.Price +" Size: "+item.Size+" Variety "+item.Variety+ " Status "+item.Status+ " ID: "  + item.ProductId;
     }
 
     function find() {

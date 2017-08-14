@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Salesperson App</title>
+</head>
+<body>
+    <div>
+        <h2>All Salesperson</h2>
+        <ul id="Salespersons"></ul>
+    </div>
+
+    <div>
+        <h2>Search by Id</h2>
+        <input type="text" id="SalespersonId" size=" 5" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="Salesperson"></p>
+    </div>
+
+
+    <script src="../Scripts/jquery-3.1.1.min.js"></script>
+    <script>
+        var uri = "employees"
+        $(document).ready(function () {
+            $.getJSON(uri).done(function (data) {
+                $.each(data, function (key, item) {
+                    $('<li>', { text: formatItem(item) }).appendTo($('#Salespersons'));
+                });
+            });
+        });
+
+       
+
+        function find() {
+            var id = $('#SalespersonId').val();
+
+            $.getJSON(uri + '/?id=' + id)
+                .done(function (data) {
+                    $('#Salesperson').text(formatItem(data));
+                }).fail(function (tbXHR, statusMessage, err) {
+                    $('#Salesperson').text("Error: " + err);
+                });
+        }
+
+        function formatItem(item) {
+            return "Id: " + item.SalespersonId + " Name: " + item.FirstName + " " + item.LastName + " Email: " + item.Email
+                + " Phone: " + item.Phone
+        }
+
+    </script>
+
+</body>
+</html>

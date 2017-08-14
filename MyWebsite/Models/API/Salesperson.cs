@@ -9,12 +9,20 @@ namespace MyWebsite.Models.API
 {
     public class Salesperson
     {
-         public int SalespersonId { get; set; }
+        public Salesperson()
+        {
+            Orders = new HashSet<Order>();
+        }
+
+        [Required]
+        public int SalespersonId { get; set; }
 
         [StringLength(20)]
+        [Required]
         public string FirstName { get; set; }
 
         [StringLength(20)]
+        [Required]
         public string LastName { get; set; }
 
         [DataType(DataType.EmailAddress)]

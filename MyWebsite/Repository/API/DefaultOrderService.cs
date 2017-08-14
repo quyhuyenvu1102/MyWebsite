@@ -21,6 +21,7 @@ namespace MyWebsite.Repository.API
         }
         public async Task<int> Add(Order order, CancellationToken ct)
         {
+            order.Date = DateTime.Now;
             _context.Orders.Add(order);
             return await _context.SaveChangesAsync(ct);
         }

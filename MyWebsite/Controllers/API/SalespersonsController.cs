@@ -32,8 +32,10 @@ namespace MyWebsite.Controllers.API
             return Ok(salesperson);
         }
 
+
+        // AddAsync Method doesn't work for no fking reason
         // POST: api/Salespersons
-        public async Task<IHttpActionResult> Post([FromBody]Salesperson person,CancellationToken ct)
+        public IHttpActionResult Post([FromBody]Salesperson person,CancellationToken ct)
         {
             if (!ModelState.IsValid)
             {
@@ -42,7 +44,7 @@ namespace MyWebsite.Controllers.API
 
             try
             {
-                await _service.Add(person, ct);
+                 _service.Add(person);
             }
             catch
             {
@@ -53,7 +55,7 @@ namespace MyWebsite.Controllers.API
                 throw;
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = person.SalespersonId }, person);
+            return CreatedAtRoute("SalespersonRoute", new { id = person.SalespersonId }, person);
         }
 
         // PUT: api/Salespersons/5

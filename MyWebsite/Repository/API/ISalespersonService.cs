@@ -12,6 +12,8 @@ namespace MyWebsite.Repository.API
     {
         Task<int> Add(Salesperson person,CancellationToken ct);
 
+        int Add(Salesperson person);
+
         Task<int> Update(Salesperson person, CancellationToken ct);
 
         Task<Salesperson> Find(int id, CancellationToken ct);

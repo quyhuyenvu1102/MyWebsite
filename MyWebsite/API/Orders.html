@@ -17,6 +17,37 @@
         <p id="order"></p>
     </div>
 
+    <div>
+        <h2>Create a new order</h2>
+        <p>Order id</p>
+        <form method="post" action="Orders">
+            <input type="text" name="OrderId" />
+            <p>Total Due</p>
+            <input type="text" name="TotalDue" />
+            <p>Status</p>
+            <select name="Status">
+                <option disabled="disabled" style="display:none">Select Order Status!</option>
+                <option value="paid">paid</option>
+                <option value="returned">returned</option>
+                <option value="cancelled">cancelled</option>
+            </select>
+
+            <p>Customer Id</p>
+            <select id="dbCustomerId" name="CustomerId">
+                <option style="display:none">Select customer Id</option>
+            </select>
+
+            <p>Salesperson Id</p>
+            <select id="dbSalespersonId" name="SalespersonId">
+                <option style="display:none">Select Salesperson Id</option>
+            </select>
+
+            <br />
+            <br />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+
     <script src="../Scripts/jquery-3.1.1.min.js"></script>
     <script>
         var uri = "orders"
@@ -28,6 +59,29 @@
                         $('<li>', { text: formatItem(item) }).appendTo($('#orders'));
                     });
                 });
+
+        });
+
+        $.ajax({
+            url: "customers",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                $.each(data, function (key, item) {
+                    $('<option>', { value: item.CustomerId, text: item.CustomerId + "- "+ item.FirstName }).appendTo($('#dbCustomerId'));
+                });
+            }
+        });
+
+        $.ajax({
+            url: "Employees",
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                $.each(data, function (key, item) {
+                    $('<option>', { value: item.SalespersonId, text: item.SalespersonId + " - " + item.FirstName}).appendTo($('#dbSalespersonId'));
+                });
+            }
         });
 
         function formatItem(item) {

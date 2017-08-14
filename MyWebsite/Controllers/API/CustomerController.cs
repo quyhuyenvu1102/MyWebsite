@@ -57,7 +57,7 @@ namespace MyWebsite.Controllers.API
                     throw;
             }
 
-            return CreatedAtRoute("DefaultApi",new { id = customer.CustomerId }, customer);
+            return CreatedAtRoute("CustomerRoute",new { id = customer.CustomerId }, customer);
         }
 
         // PUT: api/Customer/5

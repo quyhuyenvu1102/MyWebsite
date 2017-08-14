@@ -19,6 +19,12 @@ namespace MyWebsite.Repository.API
             _context = context;
         }
 
+        public int Add(Salesperson person)
+        {
+            _context.Salesperson.Add(person);
+            return _context.SaveChanges();
+        }
+
         public async Task<int> Add(Salesperson person, CancellationToken ct)
         {
             _context.Salesperson.Add(person);
